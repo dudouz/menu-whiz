@@ -1,0 +1,15 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+
+# Chromadb
+.chroma/
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Miscellaneous
+*.log
+.DS_Store
