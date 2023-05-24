@@ -22,4 +22,4 @@ With MenuWhiz, restaurants can harness the power of AI and automation to streaml
 1. Run the Streamlit app:
 
    ```bash
-   streamlit run app.py
+   streamlit run chatbot.py
