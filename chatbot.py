@@ -3,9 +3,10 @@ from api_key import api_key
 
 import streamlit as st
 from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
 from langchain.document_loaders import UnstructuredMarkdownLoader
 from langchain.indexes import VectorstoreIndexCreator
-
+from langchain.chains import LLMChain
 os.environ["OPENAI_API_KEY"] = api_key
 
 menu_file = "menu.md"
@@ -15,14 +16,19 @@ data = loader.load()
 index = VectorstoreIndexCreator().from_loaders([loader])
 
 
-st.title("MenuWhiz - Your Personal Restaurant Assistant")
-# st.subheader("Powered by OpenAI's GPT-3, Langchain's LLMS, and Streamlit")
+st.title("Hello, I'm MenuWhiz, how may I serve you today?")
+st.subheader("Type in your query below: ")
+prompt_template = PromptTemplate(
+    input_variables = ['topic'],
+    template="Show me full details about {topic}",
+)
 
-llms = OpenAI(temperature=0.9)
+llm = OpenAI(temperature=0)
 
-prompt = st.text_input("Hello sir, how may I serve you: ")
 
-if prompt:
-    response = index.query(prompt, llms)
+topic = st.text_input("e.g. I want to see the menu")
+
+if topic:
+    response = index.query(topic, llm, verbose=True)
     print(response)   
     st.write(response)
