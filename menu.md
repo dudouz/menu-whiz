@@ -1,13 +1,4 @@
 This our menu, it is organized into sections, which are: Burgers and Beverages, each item is numerated and has it's own price.
-
-When we present information about our burgers, we must display exactly as the menu, so it is easier to understand and read. Never forgetting line breaks between the items. Always telling  the full details of each item.
-
-If someone says that he wants to see the menu, please show to full menu.
-
-When asked about any menu item, show the info exactly as shown in the menu.
-
-Always output with markdown formatting
-
 # Burgers:
 
 ### 1. **Classic Burger**
